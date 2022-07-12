@@ -1,0 +1,538 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap');
+
+*{
+    font-family: 'Lato', sans-serif;
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+html{
+    scroll-behavior: smooth; /* doing this we get a nice scrolling effect to the top */
+}
+
+h1, h2, h3, h4, h5, h6, span {
+    color: #242424;
+    text-align: center;
+    line-height: 1.25;
+}
+
+h1{
+    font-size: 36px;
+}
+
+
+p{
+    line-height: 1.5;
+    font-size: 16px;
+}
+
+a{
+    text-decoration: none;  /* gets rid of the small underlines inder the links */
+    position: relative;
+    transition: opacity 300ms ease;
+}
+
+i:hover{
+    opacity: 0.7;
+}
+
+.link__hover-effect:after {
+    content: "";
+    position: absolute; /* doesnt affect the position of anything in the page */
+    height: 3px;
+    width: 0%;
+    bottom: -3px;
+    right: 0;
+    transition: all 300ms ease; /* putting right 0 and left 0 in hover and all 300ms ease makes the underline go over from left to right when you hover over it */
+/* puts underlines under the language and project */
+}
+
+.link__hover-effect--white:after{
+    background-color: #fff;
+}
+
+.link__hover-effect--black:after{
+    background-color: #000;
+}
+
+.link__hover-effect:hover:after {
+    width: 100%;
+    left: 0;
+    /* when we hover over the languages and projects we can see the underline */
+}
+
+li{
+    list-style-type: none;
+}
+
+.flex{
+    display: flex;
+}
+
+.flex-1{
+    flex: 1;
+}
+
+.container{
+    padding: 50px;
+}
+
+.row{
+    width: 100%;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 0 12px;
+}
+
+.text--purple{
+    color: #6030b1;
+}
+
+section:nth-child(even){
+    border-color: #f8f8f8;
+}
+
+.section__title{
+    margin-bottom: 20px;
+}
+
+/* NAVIGATION BAR  */
+
+nav{
+    height: 100px;
+    width: 100%;
+    max-width: 1000px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 12px;
+}
+
+.nav__link--list{
+    display: flex;
+}
+
+.nav__link--anchor{
+    margin: 0 12px;
+    color: #242424;
+    font-weight: 700;
+}
+
+.nav__link--anchor-primary{
+    background-color: #6030b1;
+    padding: 8px 20px ;
+    border-radius: 50px;
+    color: white;
+    transition: sll 300ms ease;
+}
+
+.nav__link--anchor-primary:hover{
+    background-color: #5d3eff;
+}
+
+.personal__logo{
+    font-size: 24px;
+    color: #6030b1;
+    margin: 0 12px;
+    font-weight: bold;
+}
+
+/* ABOUT ME  */
+
+#about-me{
+    min-height: 10vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.about-me__info{
+    display: flex;
+    flex-direction: column;
+}
+
+.about-me__info--container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 600px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.about-me__picture--mask{
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    /* makes it a circle */
+    overflow: hidden;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.16);
+    margin-bottom: 28px;
+    animation: animate-profile-picture 800ms 200ms backwards; /*  this creates the fade picture with the keyframes */
+}
+
+@keyframes animate-profile-picture{
+    0%{
+        transform: scale(0);
+    }
+    80%{
+        transform: scale(1.1);
+    }
+    100%{
+        transform: scale(1);
+    }
+}
+
+.about-me__picture{
+    width: 100%;
+
+    /* Improving the picture */
+
+    transform: scale(1.5);
+    padding-top: 8px;
+}
+
+.about-me__info--title{
+    font-style: 16px;
+    animation: fade-up 650ms 400ms backwards;
+}
+
+.about-me__info--para{
+    font-style: 20px;
+    margin-bottom: 28px;
+    animation: fade-up 650ms 600ms backwards;
+}
+
+
+.about-me__link{
+    font-style: 20px;
+    color: #242424;
+    padding: 0 26px;
+}
+
+.about-me__links{
+    animation: fade-up 650ms 800ms backwards;
+}
+
+@keyframes fade-up{
+    0%{
+        opacity: 0;
+        transform: translateY(40px);
+    }
+    100%{
+        opacity: 1;
+        transform: rotateY(0);
+    }
+
+}
+
+.about-me__img--container{
+    flex: 1;
+    /* the figure is the entire height of the page */
+    display: flex;
+    align-items: center;
+    /* centers the image inside */
+}
+
+.about-me__img{
+    width: 100%;
+    animation: fade-in 1200ms 800ms backwards;
+}
+
+@keyframes fade-in{
+    0%{
+        opacity: 0;
+    }
+    100%{
+        opacity: 1;
+
+    }
+}
+
+
+.wave{
+    display: inline-block;
+    animation: animate-wave 500ms infinite ease-in-out;
+}
+
+@keyframes animate-wave {
+    0%{
+        transform: rotate(0);
+    }
+    50%{
+        transform: right(30deg);
+    }
+    100%{
+        transform: rotate(0);
+    }
+}
+
+/* TECH - STACK  */
+
+.language__img{
+    width: 100%;
+    max-width: 100px;
+    transition: all 300ms;
+}
+
+.language:hover .language__img{
+    filter: brightness(80%);
+    opacity: 0.86;
+    transform: scale(0.9)
+}
+
+.language{
+    width: 25%;
+    display: flex;
+    justify-content: center;
+    position: relative;
+    /* relative to its parent */
+}
+
+.language__img--wrapper{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 25px 16px;
+}
+
+.language__list{
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    flex-wrap: wrap ;
+}
+
+.language__name{
+    position: absolute;
+    bottom: 0;
+    transform: scale(0);
+    transition: all 300ms;
+    font-style: 20px;
+    opacity: 0;
+}
+
+.language:hover .language__name {
+    transform: scale(1);
+    opacity: 1;
+    /* fades it in while going on top of it */
+}
+
+
+/* PROJECTS */
+
+.project{
+    margin-bottom: 135px; /* gives space between the pictures */
+
+}
+
+.project:last-child{
+    margin-bottom: 40px; /* makes the bottom of the last picture better */
+}
+
+
+.project__img{
+    width: 100%;
+    transition: all 500ms ease;
+}
+
+.project__wrapper{
+    display: flex; /* the entire size of the parent container */
+    box-shadow: 0 20px 80px rgba(0, 0, 0, 0.45);  /* 0 horizontally, 20 vertically 80 blur  rgba(0, 0, 0, 0.45) lightens the intensity of the img */
+    border-radius: 20px;  /* adds smooth edges around the corners */
+    overflow: hidden; /* do this to get the smooth edges */
+    position: relative;
+}
+
+.project__wrapper:before { 
+    content: "";
+    position: absolute; /* doest ruin the position its now */
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background-color: #1c1d25;  /* has a color when you hover over the picture */
+    opacity: 0;
+    transition: opacity 450ms ease; /* its a smooth transition */
+    z-index: 2; /* has a color when you hover over the picture */
+}
+
+.project:hover .project__wrapper:before {
+    opacity: 0.7; /* when you hover on top of it, it makes a transition */
+}
+
+.project:hover .project__img{
+    transform: scale(1.07); /* when you hover over, it zooms in */
+    filter: blur(5px); /* when you hover over it, it blurs the image */
+}
+
+.project:hover .project__description{
+    opacity: 1; /* We only want to see the description when we hover it */
+    transform: translateY(-50%);  /* the text goes from the bottom to the top of the screen */
+}
+
+.project__list{
+    padding-top: 40px;
+}
+
+
+.project__description{
+    position: absolute; /* doing this, you can see the text in teh picture */
+    top: 50%; /*  centers in the middle*/
+    left: 90px; /*  pushes it to the right by 90 px*/
+    transform: translateY(100%); /* centers with position absolute */
+    max-width: 550px;
+    z-index: 3;
+    opacity: 0; /* we dont want the text showing of we dont hover over it  */
+    transition:transform 450ms, opacity 300ms; /* the text doest appear instantly with opacity. with transform the text appears from the */
+}
+
+.project__description--title{
+    font-size: 40px; /* title size */
+}
+
+.project__description--para{
+    margin: 16px 0; /* 16 top and bottom, 0 left and right */
+}
+
+.project__description--link{
+    font-size: 20px;  /* size of tghe links */
+    margin-right: 16px; /* size of the spacing */
+}
+
+
+.project__description--title,
+.project__description--sub-title,
+.project__description--para, 
+.project__description--link{
+    text-align: left;
+    color: #fff;
+}
+
+
+/* FOOTER  */
+
+footer{
+    background-color: #242424;  /* shows the black color to see the footer */
+}
+
+
+
+.footer__social--list{
+    width: 100%; /* centers them */
+    max-width: 500px; /* spaces them closer to each other */
+    display: flex; /* centerws them in the middle */
+    justify-content: space-around;
+    margin-bottom: 28px; /* adds space between github links and linkedin */
+}
+
+.footer__row{
+    display: flex; /* puts it side by side to each other */
+    flex-direction: column; /* puts it on top of each other */
+    align-items: center; /* to center it horizontally when the flex direction is column */
+    justify-content: center; /* centers it vertically */
+    padding: 8% 0; /* we want the logo the same width as the page if you go in and go out */
+}
+
+
+.footer__logo--img{ 
+    width: 70px; /* the logo width and height */
+    height: 70px;
+}
+
+.footer__social--link,
+.footer__copyright,
+.footer__logo--popper{
+    color: #fff;
+}
+
+
+.footer__logo--popper{
+    position: absolute; /* the arrow */
+    right: 0; /* puts the arrow to the right */
+    top: 30px; /* the arrow goes to the top */
+    font-weight: 700;
+    opacity: 0; /* the arrow doesnt show up but when you hover over it in the bottom it will */
+    transition: all 300ms ease; /* makes a smoother transition to the arrow */
+}
+
+.footer__anchor{
+    margin-bottom: 20px; /* adds space in thr middle of logo and links */
+    position: relative;
+}
+
+.footer__anchor:hover .footer__logo--popper{
+    transform: translateX(60px);  /* pushes teh arrow to the right */
+    opacity: 1; /* when you hover over the logo, the arrow will pup up */
+}
+
+/* use this if you want it for Small phones, tablets, large smartphones */
+@media (max-width: 768px){
+    nav{
+        height: 68px;
+    }
+
+    h1{
+        font-size: 28px;
+    }
+
+    .about-me__info--para{
+        font-style: 18px;
+    }
+
+    .language{
+        width: calc(100% / 3);
+    }
+
+    .project__description--para{
+        font-style: 14px;
+    }
+
+    .project__description{
+        left: 30px;
+        padding-right: 30px;
+    }
+}
+
+
+@media (max-width: 480px){
+    .nav__link:not(:last-child){
+        display: none;
+    }
+
+    .project__description{
+        padding: 0;
+        left: 0;
+        width: 100%;
+    }
+
+    .project__description--para{
+        display: none;
+    }
+
+    .project__description--links{
+        display: flex;
+        justify-content: center;
+    }
+
+    .project__description--title{
+        font-style: 32px;
+        line-height: 1;
+        text-align: center;
+    }
+
+    .project__description--sub-title{
+        text-align: center;
+        margin: 12px 0;
+    }
+}
+
+
+
+
+
+
+
+
+/*  */
